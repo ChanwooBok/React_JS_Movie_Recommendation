@@ -1,7 +1,9 @@
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Group_key_arr, Group_obj } from '../atom/NavList';
-
+import styles from "./Navbar.module.css";
 
 function Navbar() {
 
@@ -12,20 +14,20 @@ function Navbar() {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
 
             {/* page Name */}
-            <div>
+            <div className={styles.pageName}>
                 <Link to={"/"}>WooFlex</Link>
             </div>
 
             {/* Group Links */}
-            <div>
+            <div className={styles.GroupLink}>
                 {
                     Group_key_arr.map( (key) => {
                         return (
-                            <div>
-                                <div>
+                            <div className={styles.Link} key={key}>
+                                <div className={styles.Link_sep}>
                                     <Link
                                         to={`/page/${Group_obj[key]}/1`}
                                     >{key}</Link>
@@ -35,11 +37,11 @@ function Navbar() {
                     })
                 }
                  {/* 🎄 Merry Christmas! */}
-                <div><Link to={`/search/christmas`}>Christmas🎄</Link></div>
+                <div className={styles.MerryChristMas}><Link to={`/search/christmas`}>Christmas🎄</Link></div>
             </div>
 
             {/* Search Bar */}
-            <div>
+            <div className={styles.searchBar}>
                 <div>
                     <form>
                         {/* Search Bar */}
@@ -54,7 +56,7 @@ function Navbar() {
                         {/* Search Button */}
                         <Link to={`/search/${search}`}>
                             <button>
-                                search font button
+                                <FontAwesomeIcon icon={faSearch} size="lg" />
                             </button>
                         </Link>
                     </form>

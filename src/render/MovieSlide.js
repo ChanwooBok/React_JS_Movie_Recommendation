@@ -1,3 +1,4 @@
+import styles from './MovieSlide.module.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import default_Img from './Img/default_Img.jpeg';
@@ -8,14 +9,14 @@ const onErrorImg = (e) => {
 
 function MovieSlide( {id, coverImg, rating, runtime, title} ){
     return (
-        <div>
+        <div className={styles.movie}>
             <Link to={`/movie/${id}`}>
                 <img src={coverImg} alt={title} onError={onErrorImg}/>
             </Link>
-            <div>
-                <div>
+            <div className={styles.letters}>
+                <div className={styles.title}>
                     <div>
-                        <h3>
+                        <h3 className={styles.movieName}>
                             <Link to={`/movie/${id}`}>
                                 {(title.length > 35) 
                                     ? `${title.slice(0,35)}...`

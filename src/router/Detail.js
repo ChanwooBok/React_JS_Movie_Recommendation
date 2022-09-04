@@ -1,3 +1,4 @@
+import styles from './Detail.module.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Load from '../components/Load';
@@ -22,7 +23,8 @@ function Detail() {
     } , [])
 
     return(
-        <div>
+        
+        <div className={styles.container}>
             {
                 loading 
                     ? <Load />
